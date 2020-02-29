@@ -7,7 +7,7 @@
     <nav>
         <ul>
             <li><a class="nav-el" href="index.php">Home</a></li>
-            <li><a class="nav-el" href="">About</a></li>
+            <li><a class="nav-el" href="about.php">About</a></li>
         </ul>
     </nav>
 <?php

@@ -18,6 +18,7 @@ class Model
     public function getTasks(){
         $userid = 0;
         if (isset($_SESSION['id'])) {
+            header('location: /error_wrong.php');                
             $userid = $_SESSION['id'];
         }
         $stmt = $this->conn->prepare("SELECT * FROM tasks WHERE (user_id = :uid)");
@@ -89,7 +90,7 @@ class Model
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         if (count($result) > 0) {
-            //TODO exit()?
+            header('location: /error_wrong.php');
             return $result[0]['hash'];
         } else {
             return 0;
@@ -110,7 +111,7 @@ class Model
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         if (count($result) > 0) {;
-            header('Location: /error.php');            
+            header('location: /error.php');
         }
         
         $stmt = $this->conn->prepare("INSERT INTO users (name, email, hash, created) 
