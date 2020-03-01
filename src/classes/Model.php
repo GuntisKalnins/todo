@@ -113,18 +113,26 @@ class Model
         if (count($result) > 0) {;
             header('location: /error.php');
         }
-        
-        $stmt = $this->conn->prepare("INSERT INTO users (name, email, hash, created) 
-        VALUES ( :name, :email, :hash, current_timestamp())");
-        $stmt->bindParam(':name', $_POST['user']);
-        $stmt->bindParam(':email', $_POST['email']);
-        $hash = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
-        $stmt->bindParam(':hash', $hash);
-        $stmt->execute();
-        $_SESSION['user'] = $_POST['user'];
-        $_SESSION['id'] = $this->getId($_POST['user']);
 
-        $this->getTasks();
+        if ($_POST['pw1']!= $_POST['pw2']){
+
+        echo("Oops! Password did not match! Try again. ");
+
+        }else{
+            $stmt = $this->conn->prepare("INSERT INTO users (name, email, hash, created) 
+            VALUES ( :name, :email, :hash, current_timestamp())");
+            $stmt->bindParam(':name', $_POST['user']);
+            $stmt->bindParam(':email', $_POST['email']);
+            $hash = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
+            $stmt->bindParam(':hash', $hash);
+            $stmt->execute();
+            $_SESSION['user'] = $_POST['user'];
+            $_SESSION['id'] = $this->getId($_POST['user']);
+    
+            $this->getTasks();
+        }
+        
+
 
     }
 }

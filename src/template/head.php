@@ -6,6 +6,7 @@
     <title>Todo app</title>
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet"> 
     <link type="text/css" rel="stylesheet" href="styles/styles.css?<?php echo time();?>">
+    <script src="../scripts/scripts.js" defer></script>
 </head>
 <body>
     

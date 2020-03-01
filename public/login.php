@@ -9,7 +9,6 @@ $view = new View();
 $model = new Model($config, $view);
 $controller = new Controller($model);
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $hash = $model->getHash($_POST['user']);
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['id'] = $model->getId($_POST['user']);
         header('Location: index.php');
     } else {
-        header('Location:bad_login.php');
+        header('location: /error_wrong.php');
     }
 
 }
