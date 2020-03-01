@@ -1,5 +1,5 @@
 <?php
- require_once "../src/template/head.php";
+require_once "../src/template/head.php";
 echo "<div class='error-page'>";
 echo "<h1>Can't register your username and/or email</h1>";
 echo "</div>";

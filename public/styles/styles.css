@@ -45,7 +45,7 @@ li {
 .list, .items{
     background-color:rgba(146, 146, 146, 0.123);
     margin: 10px auto;
-    max-width: 500px;
+    max-width: 650px;
     padding: 10px;
     border-radius: 4px;
     box-shadow: 3px 3px rgb(136, 136, 136);    

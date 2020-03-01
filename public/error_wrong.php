@@ -1,5 +1,5 @@
 <?php
- require_once "../src/template/head.php";
+require_once "../src/template/head.php";
 
 echo "<div>";
 echo "<h1>Oops something went wrong</h1>";
