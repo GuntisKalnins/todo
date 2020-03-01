@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['id'] = $model->getId($_POST['user']);
         header('Location: index.php');
     } else {
-        header('location: /error_wrong.php');
+        header('location: bad_login.php');
     }
 
 }

@@ -19,16 +19,18 @@ class View {
                         //---
                         break;
                     case "task":
+                        echo "<label for='task'>Task:</label>";
                         echo "<input class='item' type='text' name='task' value='$cell'></input>";
                         break;
                     case "comments":
                         echo "<input class='item comment' type='text' name='comments' value='$cell'></input>";
                         break;
                     case "due":
+                        echo "<label for='due' id='dueL'>Due date:</label>";
                         echo "<input class='item due' type='date' name='due' id='due' value='$cell'></input>";
                         break;
                     case "done":
-                        //---
+                        //----
                         break;
                     case "created":
                         //---

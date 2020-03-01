@@ -97,7 +97,7 @@ class Model
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         if (count($result) > 0) {
-            header('location: /error_wrong.php');
+            header('location: bad_login.php');
             return $result[0]['hash'];
         } else {
             return 0;
