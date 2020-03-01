@@ -18,7 +18,7 @@ class Model
     public function getTasks(){
         $userid = 0;
         if (isset($_SESSION['id'])) {
-            header('location: /error_wrong.php');                
+           // header('location: /error_wrong.php');                
             $userid = $_SESSION['id'];
         }
         $stmt = $this->conn->prepare("SELECT * FROM tasks WHERE (user_id = :uid)");
@@ -32,7 +32,7 @@ class Model
     public function addTasks()
     {
         if (!isset($_SESSION['id'])) {
-            header('location: /register.php');
+            header('location: /index.php');
         }
         $stmt = $this->conn->prepare("INSERT INTO tasks (task, comments, user_id) 
         VALUES (:task, :comments, :userid)");
@@ -121,6 +121,10 @@ class Model
         $hash = password_hash($_POST['pw1'], PASSWORD_DEFAULT);
         $stmt->bindParam(':hash', $hash);
         $stmt->execute();
+        $_SESSION['user'] = $_POST['user'];
+        $_SESSION['id'] = $this->getId($_POST['user']);
+
+        $this->getTasks();
 
     }
 }

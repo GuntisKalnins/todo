@@ -13,16 +13,18 @@
 <?php
 if (isset($_SESSION['id'])) {
     ?>
-    <a href="logout.php">Logout</a>
+    <div class="logBox">
+        <a href="logout.php" id="logoutBtn">Logout</a>
+    </div>
 <?php
 } else {
     ?>
 
     <div class="loginForm">
         <form action="login.php" method="post">
-            <input type="text" name="user" placeholder="Username" required>
-            <input type="text" name="pw" placeholder="Password" required>
-            <button type="submit" name="loginBtn">Login</button>
+            <input class="input" type="text" name="user" placeholder="Username" required>
+            <input class="input" type="password" name="pw" placeholder="Password" required>
+            <button class="submit" id="loginBtn" type="submit" name="loginBtn">Login</button>
         </form>
     </div> 
     <div class="regBtn">

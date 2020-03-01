@@ -7,21 +7,12 @@ class View {
         require_once "../src/template/header.php";
         require_once "../src/template/add_new_tasks.php";
 
-        echo "<div class='list-cont'>";
         foreach ($tasks as $index => $row) {
 
-            echo "<div class='items'>"; 
-
-            //delete form
+            echo "<div class='items'>";             
             $rowid = $row['id'];
-            echo "<form action='index.php' method='post'>";            
-            echo "<input type='hidden' name='delForm' value='$rowid'>";
-            echo "<button type='submit' class='submit' name='delBtn' value='$rowid' id='del-$rowid'>Delete</button>";
-            echo "</form>";
-
             //update form
             echo "<form action='index.php' method='post'>";
-            echo "<button type='submit' class='submit' name='updateBtn' value='$rowid'>Update</button>";
             foreach ($row as $colname => $cell) {
                 switch ($colname) {
                     case "id":
@@ -31,7 +22,7 @@ class View {
                         echo "<input class='item' type='text' name='task' value='$cell'></input>";
                         break;
                     case "comments":
-                        echo "<input class='item' type='text' name='comments' value='$cell'></input>";
+                        echo "<input class='item comment' type='text' name='comments' value='$cell'></input>";
                         break;
                     case "created":
                         //---
@@ -44,10 +35,16 @@ class View {
                         break;
                 }
             }
-            echo "</form>";    
+            echo "<button type='submit' class='submit' name='updateBtn' value='$rowid'>Save changes</button>";
+            echo "</form>";
+            //delete form
+            echo "<form action='index.php' method='post'>";            
+            echo "<input type='hidden' name='delForm' value='$rowid'>";
+            echo "<button type='submit' class='submit' name='delBtn' value='$rowid' id='del-$rowid'>Delete</button>";
+            echo "</form>";
+                
             echo "</div>";
         }
-        echo "</div>";
         require_once "../src/template/footer.php";
     }
     public function printRegister(){

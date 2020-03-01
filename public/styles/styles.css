@@ -3,23 +3,23 @@
 }
 
 body, input{
-    font-size: 1em;
-    font-family: 'Caveat', sans-serif;
-    color: rgb(0, 0, 0);
+    background-color :#f5f5f5;
+    font-size: 1.5em;
+    font-family: 'Caveat', sans-serif;    
 }
 
 ul, .title-cont{
 	display: flex;
-	width: 100%;
 	margin: auto;
-	max-width: 1000px;
 	justify-content: space-around;
-	text-align: center;
 }
 
 h1{
-    font-size: 4em;
-    color: white;
+    font-size: 3em;
+}
+
+a {
+    text-decoration: none;
 }
 
 li {
@@ -30,83 +30,78 @@ li {
     font-size: 2em;
 }
 
-.input:focus {
+.input:focus, .item:focus {
     outline: none;
 }
 
-body {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(0, 221, 250) 52%, rgba(255,205,180,1) 100%);
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-.input {
+.input, .item{
     width: 100%;
-}
-
-.list, .list-cont{
-    background-color:rgba(41, 107, 230, 0.5);
-    margin: 20px auto;
-    width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 4px 4px rgb(26, 26, 26);
-}
-
-.items{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.items li, .item-add .input {
-    border: 0;
-    padding: 10px 0;
+    border: none;
+    padding: 5px;
+    border-top: 1px dashed rgb(143, 141, 141);
     border-bottom: 1px dashed rgb(143, 141, 141);
 }
 
-.items .item.done {
-    text-decoration: line-through;
-}
-
-.items li:hover .done-button{
-    opacity: 1;
-}
-
-.done-button {
-    display: inline-block;
-    font-size: 0.7em;
-    color: black;
-    padding: 3px 6px;
-    border: 0;
-    opacity: 0.5;
+.list, .items{
+    background-color:rgba(146, 146, 146, 0.123);
+    margin: 10px auto;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 3px 3px rgb(136, 136, 136);    
 }
 
 .submit {
+    display: inline-block;
+    font-family: 'Caveat', sans-serif;
+    font-size: 0.8em;
     background-color: white;
-    padding: 10px;
-    border: 1px solid rgb(143, 141, 141);
+    padding: 8px;
+    border: 1px solid rgba(143, 141, 141, 0.5);
     width: 100%;
-    margin-top: 10px;
+    margin: 5px 0;
     cursor: pointer;
+    opacity: 0.8;
+}
+
+.submit:hover {
+    opacity: 1;
+    border: 1px solid rgb(114, 114, 114);
+}
+
+#comment, .comment{
+    font-size: 1em;
+    color: rgb(136, 136, 136);
+}
+
+.regForm, .loginForm {
+    margin-top: 20px;
+}
+.logBox{
+    height: 25px;
+}
+
+#logoutBtn{
+    float: right;
 }
 
 footer {
     position: fixed;
     bottom: 0;
     font-size: 14px; 
-    color: white;   
 }
 
-
-
-
-
-
-
-
+.bad-login, .error-page, .about-page{
+    font-family: sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    font-size: 0.5em;
+    font-weight: 900;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: black;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #001aff, 1px 1px 0px #ff005a;
+}

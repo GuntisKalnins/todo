@@ -14,14 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $hash = $model->getHash($_POST['user']);
     if (password_verify($_POST['pw'], $hash)) {
-        // echo "You are good to go! consider yourself logged in ";
         $_SESSION['user'] = $_POST['user'];
         $_SESSION['id'] = $model->getId($_POST['user']);
-        header('Location: /');
+        header('Location: index.php');
     } else {
-        //we could consider adding a specific message about login status
-        header('Location: /?badlogin=true');
+        header('Location:bad_login.php');
     }
-    //select name and hash from DB
-    //password_verify user entry against the hash
+
 }
