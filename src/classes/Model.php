@@ -34,10 +34,15 @@ class Model
         if (!isset($_SESSION['id'])) {
             header('location: /index.php');
         }
-        $stmt = $this->conn->prepare("INSERT INTO tasks (task, comments, user_id) 
-        VALUES (:task, :comments, :userid)");
+        //date_create_from_format ( string $format , string $time [, DateTimeZone $timezone ] ) : DateTime
+        //$date = date_create_from_format('j-M-Y', 'due');
+
+        $stmt = $this->conn->prepare("INSERT INTO tasks (task, comments, due, user_id) 
+        VALUES (:task, :comments, :due, :userid)");
         $stmt->bindParam(':task', $_POST['task']);
         $stmt->bindParam(':comments', $_POST['comments']);
+        $date = date_create_from_format('Y-m-d', 'due');
+        $stmt->bindParam(':due', $_POST['due']);        
         $stmt->bindParam(':userid', $_SESSION['id']);
         $stmt->execute();
         $this->getTasks();
@@ -54,10 +59,12 @@ class Model
 
     public function updateTasks(){
 
-        $stmt = $this->conn->prepare("UPDATE tasks SET task = (:taskinfo), comments = (:comments)
+        $stmt = $this->conn->prepare("UPDATE tasks SET task = (:taskinfo), comments = (:comments), due = (:due)
         WHERE id = (:taskid)");
         $stmt->bindParam(':taskinfo', $_POST['task']);
         $stmt->bindParam(':comments', $_POST['comments']);
+        $date = date_create_from_format('Y-m-d', 'due');
+        $stmt->bindParam(':due', $_POST['due']);
         $stmt->bindParam(':taskid', $_POST['updateBtn']);
         $stmt->execute();
         $this->getTasks();
@@ -116,7 +123,7 @@ class Model
 
         if ($_POST['pw1']!= $_POST['pw2']){
 
-        echo("Oops! Password did not match! Try again. ");
+            header('Location: /error.php');
 
         }else{
             $stmt = $this->conn->prepare("INSERT INTO users (name, email, hash, created) 

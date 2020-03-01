@@ -24,6 +24,12 @@ class View {
                     case "comments":
                         echo "<input class='item comment' type='text' name='comments' value='$cell'></input>";
                         break;
+                    case "due":
+                        echo "<input class='item due' type='date' name='due' id='due' value='$cell'></input>";
+                        break;
+                    case "done":
+                        //---
+                        break;
                     case "created":
                         //---
                         break;
