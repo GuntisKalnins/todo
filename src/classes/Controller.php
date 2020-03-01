@@ -29,7 +29,7 @@ class Controller {
         } elseif (isset($_POST['updateBtn'])) {
             $this->model->updateTasks();   
         } else {
-            echo "Invalid button";
+            header('location: /error.php');
         }
     }
     

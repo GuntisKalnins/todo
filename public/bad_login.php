@@ -1,7 +1,6 @@
 <?php
 header("Refresh: 5; url= index.php");
 require_once "../src/template/head.php";
-
 ?>
 
 <div class="bad-login">
